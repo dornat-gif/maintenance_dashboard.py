@@ -94,9 +94,11 @@ if st.button("Generate Report"):
     # Display emails
     st.subheader("Email 1: Technician Activity Report")
     st.text_area("Email to Bryan Weiss", value=email1, height=400)
+    st.download_button("Download Email 1", email1, file_name="email1.txt")
 
     st.subheader("Email 2: Maintenance Department Update")
     st.text_area("Email to Upper Management & Peers", value=email2, height=400)
+    st.download_button("Download Email 2", email2, file_name="email2.txt")
 
     # Technician productivity chart
     task_counts = {tech: len(tasks) for tech, tasks in technicians.items()}
@@ -133,4 +135,3 @@ if st.button("Generate Report"):
             writer.writerow([datetime.today().strftime("%Y-%m-%d"), tech, count])
 
     st.success("Report generated, saved to JSON, and metrics appended to CSV.")
-``
